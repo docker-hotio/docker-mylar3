@@ -4,12 +4,6 @@ ARG DEBIAN_FRONTEND="noninteractive"
 
 EXPOSE 8090
 
-ARG MYLAR3_VERSION=e1c3f4a7a221f61eca7a6086f47864dc29dad4d2
-
-# install app
-RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.gz" | tar xzf - -C "${APP_DIR}" --strip-components=1 && \
-    chmod -R u=rwX,go=rX "${APP_DIR}"
-
 # install packages
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
@@ -21,5 +15,11 @@ RUN apt update && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+
+ARG MYLAR3_VERSION=e1c3f4a7a221f61eca7a6086f47864dc29dad4d2
+
+# install app
+RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.gz" | tar xzf - -C "${APP_DIR}" --strip-components=1 && \
+    chmod -R u=rwX,go=rX "${APP_DIR}"
 
 COPY root/ /
