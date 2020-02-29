@@ -14,10 +14,10 @@ RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.g
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
         nodejs python3-pkg-resources \
-        python3-pip python3-setuptools build-essential python3-all-dev && \
+        python3-pip python3-setuptools build-essential python3-all-dev libffi-dev && \
     pip3 install --no-cache-dir --upgrade -r "${APP_DIR}/requirements.txt" && \
 # clean up
-    apt purge -y python3-pip python3-setuptools build-essential python3-all-dev && \
+    apt purge -y python3-pip python3-setuptools build-essential python3-all-dev libffi-dev && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
