@@ -3,8 +3,6 @@
 
 umask "${UMASK}"
 
-HOME="${CONFIG_DIR}" && export HOME
-
 redirect_cmd() {
     if [[ "${DEBUG}" == "yes" ]]; then
         "$@"
