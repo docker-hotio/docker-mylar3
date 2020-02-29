@@ -1,0 +1,10 @@
+#!/usr/bin/with-contenv bash
+# shellcheck shell=bash
+
+umask "${UMASK}"
+
+if [[ ! -f "${CONFIG_DIR}/app/config.ini" ]]; then
+    echo "[Metatagging]" > "${CONFIG_DIR}/app/config.ini"
+    echo "ct_settingspath = ${CONFIG_DIR}/app/.ComicTagger" >> "${CONFIG_DIR}/app/config.ini"
+    chown hotio:hotio "${CONFIG_DIR}/app/config.ini"
+fi
