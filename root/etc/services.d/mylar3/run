@@ -3,7 +3,7 @@
 
 umask "${UMASK}"
 
-CT_SETTINGSPATH="${CONFIG_DIR}/comictagger" && export CT_SETTINGSPATH
+HOME="${CONFIG_DIR}" && export HOME
 
 redirect_cmd() {
     if [[ "${DEBUG}" == "yes" ]]; then
