@@ -13,7 +13,7 @@ RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/v${MYLAR3_VERSION}.tar.
 # install packages
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
-        nodejs \
+        nodejs python3-pkg-resources \
         python3-pip python3-setuptools && \
     pip3 install --no-cache-dir --upgrade -r "${APP_DIR}/requirements.txt" && \
 # clean up
