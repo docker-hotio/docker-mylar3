@@ -13,7 +13,7 @@ RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.g
 # install packages
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
-        nodejs python3-pkg-resources \
+        nodejs python3-pkg-resources libjpeg8 \
         python3-pip python3-setuptools build-essential python3-all-dev libffi-dev libjpeg-dev && \
     pip3 install --no-cache-dir --upgrade APScheduler>=3.6.3 beautifulsoup4>=4.8.2 cfscrape>=2.0.8 cheroot==8.2.1 CherryPy>=18.5.0 configparser>=4.0.2 feedparser>=5.2.1 Mako>=1.1.0 natsort>=3.5.2 Pillow>=4.2.1,~=6.2.2 portend>=2.6 pytz>=2019.3 requests>=2.22.0 simplejson>=3.17.0 six>=1.13.0 tzlocal>=2.0.0 unrar>=0.3 unrar-cffi==0.1.0a5 urllib3>=1.25.7 && \
 # clean up
