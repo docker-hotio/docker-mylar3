@@ -3,6 +3,8 @@
 
 umask "${UMASK}"
 
+CT_SETTINGSPATH="${CONFIG_DIR}/comictagger" && export CT_SETTINGSPATH
+
 redirect_cmd() {
     if [[ "${DEBUG}" == "yes" ]]; then
         "$@"
