@@ -8,10 +8,10 @@ EXPOSE 8090
 RUN apt update && \
     apt install -y --no-install-recommends --no-install-suggests \
         nodejs \
-        python3-pip python3-setuptools build-essential python3-all-dev && \
+        python3-pip python3-setuptools build-essential python3-all-dev libffi-dev && \
     pip3 install --no-cache-dir --upgrade APScheduler>=3.6.3 beautifulsoup4>=4.8.2 cfscrape>=2.0.8 cheroot==8.2.1 CherryPy>=18.5.0 configparser>=4.0.2 feedparser>=5.2.1 Mako>=1.1.0 natsort>=3.5.2,~=4.0.0 Pillow>=7.0.0 portend>=2.6 pyinstaller>=3.5 pytz>=2019.3 requests>=2.22.0 simplejson>=3.17.0 six>=1.13.0 tzlocal>=2.0.0 unrar>=0.3 unrar-cffi==0.1.0a5 urllib3>=1.25.7 && \
 # clean up
-    apt purge -y python3-pip python3-setuptools build-essential python3-all-dev && \
+    apt purge -y python3-pip python3-setuptools build-essential python3-all-dev libffi-dev && \
     apt autoremove -y && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
