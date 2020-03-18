@@ -18,7 +18,7 @@ RUN apt update && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-ARG MYLAR3_VERSION=0ddca29bf3ff279c24fa9e343d6a1388e5094dac
+ARG MYLAR3_VERSION=1ed70676ae77c4b15dfec54e0ad4f6f3f8618b6c
 
 # install app
 RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.gz" | tar xzf - -C "${APP_DIR}" --strip-components=1 && \
