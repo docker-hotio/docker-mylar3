@@ -1,4 +1,4 @@
-FROM hotio/base@sha256:5e7d54b781507d56d5a9416b8ec6d87e6361f0c930dcc0bf3fbf873e40631fc1
+FROM hotio/base@sha256:737c12d432de3670087aac05bf51e3fb42b1d797699fedafae5585b61e79285e
 
 ARG DEBIAN_FRONTEND="noninteractive"
 
@@ -18,7 +18,7 @@ RUN apt update && \
     apt clean && \
     rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
 
-ARG MYLAR3_VERSION=0.3.0
+ARG MYLAR3_VERSION=0.3.3
 
 # install app
 RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/v${MYLAR3_VERSION}.tar.gz" | tar xzf - -C "${APP_DIR}" --strip-components=1 && \
