@@ -315,7 +315,7 @@ steps:
   environment:
     VERSION_FIELD: ${MYLAR3_VERSION=91224370f41ad42b6b86bf7e2e81eb0784b14b51}
   commands:
-    - apk add --no-cache curl@edge iputils@edge bash@edge coreutils@edge
+    - apk add --no-cache curl iputils bash coreutils
     - bash update.sh checkservice
     - bash update.sh screenshot
   failure: ignore
