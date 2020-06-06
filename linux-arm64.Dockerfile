@@ -1,7 +1,7 @@
 FROM hotio/base@sha256:5c748f472fd4dda9c2332dbce09046f9b419d6776083ec17df1d4d8370eb5a0b
 EXPOSE 8090
 
-RUN apk add --no-cache nodejs python3 py3-openssl py3-setuptools py3-six py3-openssl libjpeg-turbo && \
+RUN apk add --no-cache nodejs python3 py3-openssl py3-setuptools py3-six py3-openssl py3-requests py3-urllib3 libjpeg-turbo && \
     apk add --no-cache --virtual=build-dependencies py3-pip gcc zlib-dev libjpeg-turbo-dev python3-dev musl-dev make g++ && \
     pip3 install --no-cache-dir --upgrade \
         APScheduler>=3.6.3 \
@@ -16,12 +16,10 @@ RUN apk add --no-cache nodejs python3 py3-openssl py3-setuptools py3-six py3-ope
         Pillow>=4.2.1,~=6.2.2 \
         portend>=2.6 \
         pytz>=2019.3 \
-        requests>=2.22.0 \
         simplejson>=3.17.0 \
         tzlocal>=2.0.0 \
         unrar>=0.3 \
-        unrar-cffi==0.1.0a5 \
-        urllib3>=1.25.7 && \
+        unrar-cffi==0.1.0a5 && \
     apk del --purge build-dependencies
 
 ARG MYLAR3_VERSION
