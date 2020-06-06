@@ -2,7 +2,7 @@ FROM hotio/base@sha256:dba94df91a2c476ec1e3717a2f76fd01ef5b9fcf1a1baa0efbac5e3c5
 EXPOSE 8090
 
 RUN apk add --no-cache nodejs python3 py3-openssl py3-setuptools py3-six py3-openssl libjpeg-turbo && \
-    apk add --no-cache --virtual=build-dependencies py3-pip gcc zlib-dev libjpeg-turbo-dev && \
+    apk add --no-cache --virtual=build-dependencies py3-pip gcc zlib-dev libjpeg-turbo-dev python3-dev && \
     pip3 install --no-cache-dir --upgrade \
         APScheduler>=3.6.3 \
         beautifulsoup4>=4.8.2 \
