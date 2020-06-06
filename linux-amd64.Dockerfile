@@ -1,26 +1,30 @@
-FROM hotio/base@sha256:0b20357b4f67bb39ee5b2642a94b0b4d979a19e08236b55a51e8ff9178e1ab84
-
-ARG DEBIAN_FRONTEND="noninteractive"
-
+FROM hotio/base@sha256:ad79f26c53e2c7e1ed36dba0a0686990c503835134c63d9ed5aa7951e1b45c23
 EXPOSE 8090
 
-# install packages
-RUN apt update && \
-    apt install -y --no-install-recommends --no-install-suggests \
-        nodejs python3-pkg-resources \
-        python3-pip python3-setuptools && \
+RUN apk add --no-cache nodejs python3 py3-openssl py3-setuptools py3-six py3-openssl && \
+    apk add --no-cache --virtual=build-dependencies py3-pip && \
     pip3 install --no-cache-dir --upgrade \
-        pyopenssl \
-        APScheduler>=3.6.3 beautifulsoup4>=4.8.2 cfscrape>=2.0.8 cheroot==8.2.1 CherryPy>=18.5.0 configparser>=4.0.2 feedparser>=5.2.1 Mako>=1.1.0 natsort>=3.5.2 Pillow>=4.2.1,~=6.2.2 portend>=2.6 pytz>=2019.3 requests>=2.22.0 simplejson>=3.17.0 six>=1.13.0 tzlocal>=2.0.0 unrar>=0.3 unrar-cffi==0.1.0a5 urllib3>=1.25.7 && \
-# clean up
-    apt purge -y python3-pip python3-setuptools && \
-    apt autoremove -y && \
-    apt clean && \
-    rm -rf /tmp/* /var/lib/apt/lists/* /var/tmp/*
+        APScheduler>=3.6.3 \
+        beautifulsoup4>=4.8.2 \
+        cfscrape>=2.0.8 \
+        cheroot==8.2.1 \
+        CherryPy>=18.5.0 \
+        configparser>=4.0.2 \
+        feedparser>=5.2.1 \
+        Mako>=1.1.0 \
+        natsort>=3.5.2 \
+        Pillow>=4.2.1,~=6.2.2 \
+        portend>=2.6 \
+        pytz>=2019.3 \
+        requests>=2.22.0 \
+        simplejson>=3.17.0 \
+        tzlocal>=2.0.0 \
+        unrar>=0.3 \
+        unrar-cffi==0.1.0a5 \
+        urllib3>=1.25.7 && \
+    apk del --purge build-dependencies
 
 ARG MYLAR3_VERSION
-
-# install app
 RUN curl -fsSL "https://github.com/mylar3/mylar3/archive/${MYLAR3_VERSION}.tar.gz" | tar xzf - -C "${APP_DIR}" --strip-components=1 && \
     chmod -R u=rwX,go=rX "${APP_DIR}"
 
