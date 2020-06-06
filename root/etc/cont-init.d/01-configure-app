@@ -4,7 +4,7 @@
 umask "${UMASK}"
 
 if [[ ! -f "${CONFIG_DIR}/app/config.ini" ]]; then
-    echo "[Metatagging]" > "${CONFIG_DIR}/app/config.ini"
-    echo "ct_settingspath = ${CONFIG_DIR}/app/.ComicTagger" >> "${CONFIG_DIR}/app/config.ini"
+    echo "[Git]" > "${CONFIG_DIR}/app/config.ini"
+    echo "git_branch = master" >> "${CONFIG_DIR}/app/config.ini"
     chown hotio:hotio "${CONFIG_DIR}/app/config.ini"
 fi
