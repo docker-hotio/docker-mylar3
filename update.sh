@@ -11,7 +11,7 @@ if [[ ${1} == "checkdigests" ]]; then
     digest=$(echo "${manifest}" | jq -r '.manifests[] | select (.platform.architecture == "arm64" and .platform.os == "linux").digest') && sed -i "s#FROM ${image}@.*\$#FROM ${image}@${digest}#g" ./linux-arm64.Dockerfile  && echo "${digest}"
 elif [[ ${1} == "tests" ]]; then
     echo "List installed packages..."
-    docker run --rm --entrypoint="" "${2}" apt list --installed
+    docker run --rm --entrypoint="" "${2}" apk -vv info | sort
     echo "Check if app works..."
     app_url="http://localhost:8090"
     docker run --rm --network host -d --name service -e DEBUG="yes" "${2}"
