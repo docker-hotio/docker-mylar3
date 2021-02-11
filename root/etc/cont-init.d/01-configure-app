@@ -3,8 +3,8 @@
 
 umask "${UMASK}"
 
-if [[ ! -f "${CONFIG_DIR}/app/config.ini" ]]; then
-    echo "[Git]" > "${CONFIG_DIR}/app/config.ini"
-    echo "git_branch = python3-dev" >> "${CONFIG_DIR}/app/config.ini"
-    chown hotio:hotio "${CONFIG_DIR}/app/config.ini"
+if [[ ! -f "${CONFIG_DIR}/config.ini" ]]; then
+    echo "[Git]" > "${CONFIG_DIR}/config.ini"
+    echo "git_branch = python3-dev" >> "${CONFIG_DIR}/config.ini"
+    chown hotio:hotio "${CONFIG_DIR}/config.ini"
 fi
