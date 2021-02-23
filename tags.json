@@ -4,7 +4,7 @@
       "name": "release",
       "version": "0.4.9.5",
       "commit": "2a4b349",
-      "upstream": "",
+      "upstream": "Releases",
       "lastUpdated": "2021-02-23T13:07:41.628Z"
     },
     {
@@ -18,7 +18,7 @@
       "name": "nightly",
       "version": "77dd0015fc15855c766c81e2330ad71be1628539",
       "commit": "3358cc6",
-      "upstream": "",
+      "upstream": "Every commit to python3-dev",
       "lastUpdated": "2021-02-23T13:07:16.494Z"
     }
   ]
