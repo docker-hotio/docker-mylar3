@@ -16,10 +16,10 @@
     },
     {
       "name": "nightly",
-      "version": "dbc0e9e40b559877d90bc20b21b0125d65cb4d6c",
-      "commit": "d4e5ade",
+      "version": "5a33a2030e898d91d9fc4e4ec6b4bd23394fa323",
+      "commit": "b4f4ae2",
       "upstream": "Every commit to python3-dev",
-      "lastUpdated": "2021-04-24T23:59:12.879Z"
+      "lastUpdated": "2021-04-26T18:44:32.009Z"
     }
   ],
   "pulls": 4145395,
